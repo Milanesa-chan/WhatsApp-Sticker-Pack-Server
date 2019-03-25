@@ -209,23 +209,22 @@ public class Main {
             }else if(!workersDir.isDirectory()){
                 System.out.println("[Error][setupDirectories] Path: "+workersDirPath+" is not a directory. Aborting.");
                 Runtime.getRuntime().exit(1);
-            }else if(workersDir.listFiles().length > 0){
+            }else if(workersDir.listFiles().length > 0) {
                 boolean autoEmptyWorkersDir = Boolean.valueOf(appPrefs.node("dir").get("empty_workers_directory", "false"));
-                if(autoEmptyWorkersDir){
+                if (autoEmptyWorkersDir) {
                     try {
                         System.out.println("[setupDirectories] Workers directory has files in it. Emptying it...");
                         FileUtils.cleanDirectory(workersDir);
-                    }catch(Exception ex){
+                    } catch (Exception ex) {
                         System.out.println("[Error][setupDirectories] Couldn't empty workers directory. Aborting.");
                         Runtime.getRuntime().exit(1);
                     }
-                }else{
+                } else {
                     System.out.println("[Error][setupDirectories] Path: " + workersDirPath + " has files in it. If you want to empty it automatically change the option in prefs.ini.");
                     Runtime.getRuntime().exit(1);
                 }
-            }else{
-                System.out.println("[setupDirectories] Workers directory correct.");
             }
+            System.out.println("[setupDirectories] Workers directory correct.");
         }
     }
 
