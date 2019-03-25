@@ -6,7 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4911da73-ec0d-4843-b598-ef8bb888d21f" name="Default Changelist" comment="" />
+    <list default="true" id="4911da73-ec0d-4843-b598-ef8bb888d21f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WASPC__Server__Debug/prefs.ini" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WASPC__Server__Debug/prefs.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/milanesa/wasps/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/milanesa/wasps/Main.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="216" column="5" lean-forward="true" selection-start-line="216" selection-start-column="5" selection-end-line="216" selection-end-column="5" />
+            <state relative-caret-position="227">
+              <caret line="215" column="112" selection-start-line="215" selection-start-column="112" selection-end-line="215" selection-end-column="112" />
               <folding>
                 <element signature="method#workManagerLoop#0;class#Main#0" />
                 <element signature="method#giveWorkToReadyWorker#0;class#Main#0" />
@@ -39,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Worker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+            <state relative-caret-position="476">
+              <caret line="37" column="73" selection-start-line="37" selection-start-column="73" selection-end-line="37" selection-end-column="73" />
               <folding>
                 <element signature="method#Worker#0;class#Worker#0" />
                 <element signature="method#approveTask#0;class#Worker#0" />
@@ -116,7 +119,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553480958469" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/WASPC__Server__Debug/WASPC (Server).jar" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -132,6 +135,18 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Debug from Jar" type="JarApplication" factoryName="JAR Application">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/WASPC__Server__Debug/WASPC (Server).jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Luca\Proyectos Varios\WhatsApp-Sticker-Pack-Server\Code" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="WASPC (Server):jar" />
+        </option>
+      </method>
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -150,7 +165,7 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20437019" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20437019" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -159,7 +174,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24495289" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24495289" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -200,10 +215,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Worker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="37" column="73" selection-start-line="37" selection-start-column="73" selection-end-line="37" selection-end-column="73" />
+          <folding>
+            <element signature="method#Worker#0;class#Worker#0" />
+            <element signature="method#approveTask#0;class#Worker#0" />
+            <element signature="method#copyInputFiles#0;class#Worker#0" />
+            <element signature="method#checkInputDirState#0;class#Worker#0" />
+            <element signature="method#createWorkPath#0;class#Worker#0" />
+            <element signature="method#deployWASPC#0;class#Worker#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="216" column="5" lean-forward="true" selection-start-line="216" selection-start-column="5" selection-end-line="216" selection-end-column="5" />
+        <state relative-caret-position="227">
+          <caret line="215" column="112" selection-start-line="215" selection-start-column="112" selection-end-line="215" selection-end-column="112" />
           <folding>
             <element signature="method#workManagerLoop#0;class#Main#0" />
             <element signature="method#giveWorkToReadyWorker#0;class#Main#0" />
@@ -217,21 +247,6 @@
             <element signature="method#getDatabaseConnection#0;class#Main#0" />
             <element signature="method#loadPreferencesFromIni#0;class#Main#0" />
             <element signature="method#getJarPath#0;class#Main#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Worker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-          <folding>
-            <element signature="method#Worker#0;class#Worker#0" />
-            <element signature="method#approveTask#0;class#Worker#0" />
-            <element signature="method#copyInputFiles#0;class#Worker#0" />
-            <element signature="method#checkInputDirState#0;class#Worker#0" />
-            <element signature="method#createWorkPath#0;class#Worker#0" />
-            <element signature="method#deployWASPC#0;class#Worker#0" />
           </folding>
         </state>
       </provider>

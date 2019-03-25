@@ -1,5 +1,6 @@
 package milanesa.wasps;
 
+import org.apache.commons.io.FileUtils;
 import org.ini4j.*;
 
 import java.io.File;
@@ -27,11 +28,11 @@ public class Main {
         WASPCPath = jarPath+"/WASPC";
 
         //Test connection with database
-        testDatabaseConnection();
+        //testDatabaseConnection();
 
         //Prepare directories (file_dir and workers_dir)
         setupDirectories();
-
+        /*
         //Start up the workers
         createWorkers();
 
@@ -45,6 +46,7 @@ public class Main {
 
         Thread dbCleanupThread = new Thread(Main::dbCleanupLoop);
         dbCleanupThread.start();
+        */
     }
 
     private static void workManagerLoop(){
@@ -208,8 +210,19 @@ public class Main {
                 System.out.println("[Error][setupDirectories] Path: "+workersDirPath+" is not a directory. Aborting.");
                 Runtime.getRuntime().exit(1);
             }else if(workersDir.listFiles().length > 0){
-                System.out.println("[Error][setupDirectories] Path: "+workersDirPath+" has files in it. Aborting.");
-                Runtime.getRuntime().exit(1);
+                boolean autoEmptyWorkersDir = Boolean.valueOf(appPrefs.node("dir").get("empty_workers_directory", "false"));
+                if(autoEmptyWorkersDir){
+                    try {
+                        System.out.println("[setupDirectories] Workers directory has files in it. Emptying it...");
+                        FileUtils.cleanDirectory(workersDir);
+                    }catch(Exception ex){
+                        System.out.println("[Error][setupDirectories] Couldn't empty workers directory. Aborting.");
+                        Runtime.getRuntime().exit(1);
+                    }
+                }else{
+                    System.out.println("[Error][setupDirectories] Path: " + workersDirPath + " has files in it. If you want to empty it automatically change the option in prefs.ini.");
+                    Runtime.getRuntime().exit(1);
+                }
             }else{
                 System.out.println("[setupDirectories] Workers directory correct.");
             }
