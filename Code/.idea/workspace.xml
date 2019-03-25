@@ -21,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="272" column="96" selection-start-line="272" selection-start-column="96" selection-end-line="272" selection-end-column="96" />
+            <state relative-caret-position="410">
+              <caret line="267" column="100" selection-start-line="267" selection-start-column="100" selection-end-line="267" selection-end-column="100" />
               <folding>
                 <element signature="method#giveWorkToReadyWorker#0;class#Main#0" />
                 <element signature="method#dbCleanupLoop#0;class#Main#0" />
@@ -31,6 +31,8 @@
                 <element signature="method#getOnePendingEntry#0;class#Main#0" />
                 <element signature="method#getReadyWorker#0;class#Main#0" />
                 <element signature="method#approveWorkers#0;class#Main#0" />
+                <element signature="method#setupDirectories#0;class#Main#0" />
+                <element signature="method#testDatabaseConnection#0;class#Main#0" />
                 <element signature="method#loadPreferencesFromIni#0;class#Main#0" />
                 <element signature="method#getJarPath#0;class#Main#0" />
               </folding>
@@ -213,8 +215,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="272" column="96" selection-start-line="272" selection-start-column="96" selection-end-line="272" selection-end-column="96" />
+        <state relative-caret-position="410">
+          <caret line="267" column="100" selection-start-line="267" selection-start-column="100" selection-end-line="267" selection-end-column="100" />
           <folding>
             <element signature="method#giveWorkToReadyWorker#0;class#Main#0" />
             <element signature="method#dbCleanupLoop#0;class#Main#0" />
@@ -223,6 +225,8 @@
             <element signature="method#getOnePendingEntry#0;class#Main#0" />
             <element signature="method#getReadyWorker#0;class#Main#0" />
             <element signature="method#approveWorkers#0;class#Main#0" />
+            <element signature="method#setupDirectories#0;class#Main#0" />
+            <element signature="method#testDatabaseConnection#0;class#Main#0" />
             <element signature="method#loadPreferencesFromIni#0;class#Main#0" />
             <element signature="method#getJarPath#0;class#Main#0" />
           </folding>

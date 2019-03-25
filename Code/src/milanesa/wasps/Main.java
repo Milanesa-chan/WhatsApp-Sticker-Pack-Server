@@ -265,7 +265,7 @@ public class Main {
             if(conn != null){
                 return conn;
             }else{
-                System.out.println("[Error][getDatabaseConnection] Failed connection to database.");
+                System.out.println("[Error][getDatabaseConnection] Failed to connect to database.");
                 return null;
             }
         }catch(Exception ex){
