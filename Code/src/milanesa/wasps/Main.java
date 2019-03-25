@@ -32,7 +32,7 @@ public class Main {
 
         //Prepare directories (file_dir and workers_dir)
         setupDirectories();
-        /*
+
         //Start up the workers
         createWorkers();
 
@@ -46,7 +46,6 @@ public class Main {
 
         Thread dbCleanupThread = new Thread(Main::dbCleanupLoop);
         dbCleanupThread.start();
-        */
     }
 
     private static void workManagerLoop(){
