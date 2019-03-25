@@ -61,6 +61,9 @@ public class Main {
                 sleepingTime = 1000;
                 approveWorkers(dbCon);
                 giveWorkToReadyWorker(dbCon);
+            }else{
+                System.out.println("[Error][workManagerLoop] Failed connection. Retrying in 10 seconds.");
+                sleepingTime = 10000;
             }
             try{
                 dbCon.close();
