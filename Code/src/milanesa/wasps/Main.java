@@ -271,7 +271,6 @@ public class Main {
         }catch(Exception ex){
             //ex.printStackTrace();
             System.out.println("[Error][getDatabaseConnection] Failed to connect to database.");
-            Runtime.getRuntime().exit(1);
             return null;
         }
     }

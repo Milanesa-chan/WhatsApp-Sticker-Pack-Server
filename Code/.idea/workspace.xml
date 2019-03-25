@@ -6,7 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4911da73-ec0d-4843-b598-ef8bb888d21f" name="Default Changelist" comment="" />
+    <list default="true" id="4911da73-ec0d-4843-b598-ef8bb888d21f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/milanesa/wasps/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/milanesa/wasps/Main.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,10 +21,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+            <state relative-caret-position="493">
+              <caret line="272" column="96" selection-start-line="272" selection-start-column="96" selection-end-line="272" selection-end-column="96" />
               <folding>
-                <element signature="method#workManagerLoop#0;class#Main#0" />
                 <element signature="method#giveWorkToReadyWorker#0;class#Main#0" />
                 <element signature="method#dbCleanupLoop#0;class#Main#0" />
                 <element signature="method#reportFailedTasks#0;class#Main#0" />
@@ -30,8 +31,6 @@
                 <element signature="method#getOnePendingEntry#0;class#Main#0" />
                 <element signature="method#getReadyWorker#0;class#Main#0" />
                 <element signature="method#approveWorkers#0;class#Main#0" />
-                <element signature="method#testDatabaseConnection#0;class#Main#0" />
-                <element signature="method#getDatabaseConnection#0;class#Main#0" />
                 <element signature="method#loadPreferencesFromIni#0;class#Main#0" />
                 <element signature="method#getJarPath#0;class#Main#0" />
               </folding>
@@ -160,8 +159,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20437019" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20694087" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -211,6 +211,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="272" column="96" selection-start-line="272" selection-start-column="96" selection-end-line="272" selection-end-column="96" />
+          <folding>
+            <element signature="method#giveWorkToReadyWorker#0;class#Main#0" />
+            <element signature="method#dbCleanupLoop#0;class#Main#0" />
+            <element signature="method#reportFailedTasks#0;class#Main#0" />
+            <element signature="method#updateStatusInDb#0;class#Main#0" />
+            <element signature="method#getOnePendingEntry#0;class#Main#0" />
+            <element signature="method#getReadyWorker#0;class#Main#0" />
+            <element signature="method#approveWorkers#0;class#Main#0" />
+            <element signature="method#loadPreferencesFromIni#0;class#Main#0" />
+            <element signature="method#getJarPath#0;class#Main#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Worker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -222,27 +240,6 @@
             <element signature="method#checkInputDirState#0;class#Worker#0" />
             <element signature="method#createWorkPath#0;class#Worker#0" />
             <element signature="method#deployWASPC#0;class#Worker#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
-          <folding>
-            <element signature="method#workManagerLoop#0;class#Main#0" />
-            <element signature="method#giveWorkToReadyWorker#0;class#Main#0" />
-            <element signature="method#dbCleanupLoop#0;class#Main#0" />
-            <element signature="method#reportFailedTasks#0;class#Main#0" />
-            <element signature="method#updateStatusInDb#0;class#Main#0" />
-            <element signature="method#getOnePendingEntry#0;class#Main#0" />
-            <element signature="method#getReadyWorker#0;class#Main#0" />
-            <element signature="method#approveWorkers#0;class#Main#0" />
-            <element signature="method#testDatabaseConnection#0;class#Main#0" />
-            <element signature="method#getDatabaseConnection#0;class#Main#0" />
-            <element signature="method#loadPreferencesFromIni#0;class#Main#0" />
-            <element signature="method#getJarPath#0;class#Main#0" />
           </folding>
         </state>
       </provider>
