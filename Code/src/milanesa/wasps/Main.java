@@ -93,15 +93,20 @@ public class Main {
     private static void dbCleanupLoop(){
         cleaning = true;
         Connection dbCon;
+        int sleepingTime = 5000;
         try{
             while(cleaning) {
-                Thread.sleep(5000);
+                Thread.sleep(sleepingTime);
                 dbCon = getDatabaseConnection();
                 if(dbCon != null){
+                    sleepingTime = 5000;
 
                     reportFailedTasks(dbCon);
 
                     dbCon.close();
+                }else{
+                    System.out.println("[Error][dbCleanupLoop] Failed connection. Retrying in 10 seconds.");
+                    sleepingTime = 10000;
                 }
             }
         }catch(Exception ex){ex.printStackTrace();}
