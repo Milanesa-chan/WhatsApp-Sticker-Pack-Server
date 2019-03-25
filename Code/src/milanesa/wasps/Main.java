@@ -202,8 +202,8 @@ public class Main {
         }else{
             File workersDir = new File(workersDirPath);
             if(!workersDir.exists()){
-                System.out.println("[Error][setupDirectories] Could not find directory: "+workersDirPath+". Aborting.");
-                Runtime.getRuntime().exit(1);
+                System.out.println("[Error][setupDirectories] Could not find directory: "+workersDirPath+". Creating it...");
+                workersDir.mkdirs();
             }else if(!workersDir.isDirectory()){
                 System.out.println("[Error][setupDirectories] Path: "+workersDirPath+" is not a directory. Aborting.");
                 Runtime.getRuntime().exit(1);
