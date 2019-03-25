@@ -6,9 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4911da73-ec0d-4843-b598-ef8bb888d21f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/milanesa/wasps/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/milanesa/wasps/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="4911da73-ec0d-4843-b598-ef8bb888d21f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
