@@ -67,7 +67,7 @@ public class Main {
             }
             try{
                 dbCon.close();
-            }catch(Exception ex){ex.printStackTrace();}
+            }catch(Exception ex){}
         }
     }
 
@@ -109,7 +109,7 @@ public class Main {
                     sleepingTime = 10000;
                 }
             }
-        }catch(Exception ex){ex.printStackTrace();}
+        }catch(Exception ex){}
     }
 
     private static void reportFailedTasks(Connection dbCon){
