@@ -51,12 +51,14 @@ public class Main {
     private static void workManagerLoop(){
         working = true;
         Connection dbCon;
+        int sleepingTime = 1000;
         while(working){
             try{
-                Thread.sleep(1000);
+                Thread.sleep(sleepingTime);
             }catch(Exception ex){ex.printStackTrace();}
             dbCon = getDatabaseConnection();
             if(dbCon != null) {
+                sleepingTime = 1000;
                 approveWorkers(dbCon);
                 giveWorkToReadyWorker(dbCon);
             }
