@@ -31,6 +31,7 @@ public class Worker implements Runnable{
             workDir = new File(workPath);
             filesPath = Main.appPrefs.node("dir").get("files_dir", null);
             deployWASPC();
+            warmupWASPC();
             do {
                 synchronized (this) {
                     ConOut(false, "Ready for next task.");
@@ -184,6 +185,24 @@ public class Worker implements Runnable{
             }
             System.out.println("[Worker: "+name+"] WASPC Deployed.");
         }
+    }
+
+    private void warmupWASPC(){
+        try{
+            ConOut(false, "Warming-up WASPC.");
+            String jarName = "WASPC.jar";
+            ProcessBuilder waspcPB = new ProcessBuilder("java", "-jar", jarName, "-warmup");
+            waspcPB.directory(workDir);
+
+            Process waspcProcess = waspcPB.start();
+            int warmupExitValue = waspcProcess.waitFor();
+            if(warmupExitValue != 0){
+                ConOut(true, "There was an error warming-up WASPC. Aborting.");
+                Runtime.getRuntime().exit(1);
+            }else{
+                ConOut(false, "Warm-up successful.");
+            }
+        }catch(Exception ex){ex.printStackTrace();}
     }
 
     private void ConOut(boolean isError, String message){

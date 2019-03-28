@@ -6,7 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4911da73-ec0d-4843-b598-ef8bb888d21f" name="Default Changelist" comment="" />
+    <list default="true" id="4911da73-ec0d-4843-b598-ef8bb888d21f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/milanesa/wasps/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/milanesa/wasps/Worker.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="105" column="34" selection-start-line="105" selection-start-column="34" selection-end-line="105" selection-end-column="34" />
+            <state relative-caret-position="166">
+              <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
               <folding>
                 <element signature="method#giveWorkToReadyWorker#0;class#Main#0" />
                 <element signature="method#reportFailedTasks#0;class#Main#0" />
@@ -37,18 +39,44 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Worker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="37" column="73" selection-start-line="37" selection-start-column="73" selection-end-line="37" selection-end-column="73" />
+            <state relative-caret-position="192">
+              <caret line="194" column="39" selection-start-line="194" selection-start-column="39" selection-end-line="194" selection-end-column="39" />
               <folding>
+                <element signature="class#WorkerStatus#0;class#Worker#0" />
                 <element signature="method#Worker#0;class#Worker#0" />
+                <element signature="e#930#2881#1" />
+                <element signature="e#968#2867#0" />
+                <element signature="e#1511#1730#1" />
+                <element signature="e#1766#1984#1" />
+                <element signature="e#1990#2849#1" />
+                <element signature="e#2315#2512#1" />
+                <element signature="e#2517#2827#1" />
+                <element signature="e#2943#2988#0" />
                 <element signature="method#approveTask#0;class#Worker#0" />
+                <element signature="e#3047#3080#0" />
+                <element signature="method#moveOutputToSourceDir#0;class#Worker#0" />
+                <element signature="e#3339#3463#0" />
+                <element signature="method#startWASPC#0;class#Worker#0" />
+                <element signature="e#3831#5021#0" />
+                <element signature="e#3944#4386#0" />
+                <element signature="e#3972#4329#0" />
+                <element signature="e#4421#4863#0" />
+                <element signature="e#4449#4806#0" />
+                <element signature="e#5040#5107#0" />
                 <element signature="method#copyInputFiles#0;class#Worker#0" />
+                <element signature="e#5191#5260#0" />
+                <element signature="e#5279#5324#0" />
                 <element signature="method#checkInputDirState#0;class#Worker#0" />
-                <element signature="method#createWorkPath#0;class#Worker#0" />
-                <element signature="method#deployWASPC#0;class#Worker#0" />
+                <element signature="e#5469#5636#1" />
+                <element signature="e#5487#5554#0" />
+                <element signature="e#5573#5626#0" />
+                <element signature="method#startNewTask#0;class#Worker#0" />
+                <element signature="e#5724#5870#0" />
+                <element signature="e#7002#7055#0" />
+                <element signature="method#ConOut#0;class#Worker#0" />
               </folding>
             </state>
           </provider>
@@ -160,7 +188,7 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20951156" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20951156" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -169,7 +197,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24495289" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24495289" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -210,10 +238,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Worker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="194" column="39" selection-start-line="194" selection-start-column="39" selection-end-line="194" selection-end-column="39" />
+          <folding>
+            <element signature="class#WorkerStatus#0;class#Worker#0" />
+            <element signature="method#Worker#0;class#Worker#0" />
+            <element signature="e#930#2881#1" />
+            <element signature="e#968#2867#0" />
+            <element signature="e#1511#1730#1" />
+            <element signature="e#1766#1984#1" />
+            <element signature="e#1990#2849#1" />
+            <element signature="e#2315#2512#1" />
+            <element signature="e#2517#2827#1" />
+            <element signature="e#2943#2988#0" />
+            <element signature="method#approveTask#0;class#Worker#0" />
+            <element signature="e#3047#3080#0" />
+            <element signature="method#moveOutputToSourceDir#0;class#Worker#0" />
+            <element signature="e#3339#3463#0" />
+            <element signature="method#startWASPC#0;class#Worker#0" />
+            <element signature="e#3831#5021#0" />
+            <element signature="e#3944#4386#0" />
+            <element signature="e#3972#4329#0" />
+            <element signature="e#4421#4863#0" />
+            <element signature="e#4449#4806#0" />
+            <element signature="e#5040#5107#0" />
+            <element signature="method#copyInputFiles#0;class#Worker#0" />
+            <element signature="e#5191#5260#0" />
+            <element signature="e#5279#5324#0" />
+            <element signature="method#checkInputDirState#0;class#Worker#0" />
+            <element signature="e#5469#5636#1" />
+            <element signature="e#5487#5554#0" />
+            <element signature="e#5573#5626#0" />
+            <element signature="method#startNewTask#0;class#Worker#0" />
+            <element signature="e#5724#5870#0" />
+            <element signature="e#7002#7055#0" />
+            <element signature="method#ConOut#0;class#Worker#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="105" column="34" selection-start-line="105" selection-start-column="34" selection-end-line="105" selection-end-column="34" />
+        <state relative-caret-position="166">
+          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
           <folding>
             <element signature="method#giveWorkToReadyWorker#0;class#Main#0" />
             <element signature="method#reportFailedTasks#0;class#Main#0" />
@@ -225,21 +294,6 @@
             <element signature="method#testDatabaseConnection#0;class#Main#0" />
             <element signature="method#loadPreferencesFromIni#0;class#Main#0" />
             <element signature="method#getJarPath#0;class#Main#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/milanesa/wasps/Worker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="37" column="73" selection-start-line="37" selection-start-column="73" selection-end-line="37" selection-end-column="73" />
-          <folding>
-            <element signature="method#Worker#0;class#Worker#0" />
-            <element signature="method#approveTask#0;class#Worker#0" />
-            <element signature="method#copyInputFiles#0;class#Worker#0" />
-            <element signature="method#checkInputDirState#0;class#Worker#0" />
-            <element signature="method#createWorkPath#0;class#Worker#0" />
-            <element signature="method#deployWASPC#0;class#Worker#0" />
           </folding>
         </state>
       </provider>
