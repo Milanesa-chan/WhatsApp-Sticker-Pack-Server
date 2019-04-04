@@ -195,6 +195,25 @@ public class Worker implements Runnable{
             waspcPB.directory(workDir);
 
             Process waspcProcess = waspcPB.start();
+
+            new Thread(() -> {
+                try {
+                    BufferedReader br = new BufferedReader(new InputStreamReader(waspcProcess.getInputStream()));
+                    while (br.readLine() != null) {}
+                }catch(Exception ex){
+                    System.out.println("[Error][warmupWASPC] Something went wrong when reading WASPC input stream.");
+                }
+            }).start();
+
+            new Thread(() -> {
+                try {
+                    BufferedReader br = new BufferedReader(new InputStreamReader(waspcProcess.getErrorStream()));
+                    while (br.readLine() != null) {}
+                }catch(Exception ex){
+                    System.out.println("[Error][warmupWASPC] Something went wrong when reading WASPC error stream.");
+                }
+            }).start();
+
             int warmupExitValue = waspcProcess.waitFor();
             if(warmupExitValue != 0){
                 ConOut(true, "There was an error warming-up WASPC. Aborting.");
