@@ -199,7 +199,10 @@ public class Worker implements Runnable{
             new Thread(() -> {
                 try {
                     BufferedReader br = new BufferedReader(new InputStreamReader(waspcProcess.getInputStream()));
-                    while (br.readLine() != null) {}
+                    String nextLine;
+                    while ((nextLine = br.readLine()) != null) {
+                        //ConOut(false, nextLine);
+                    }
                 }catch(Exception ex){
                     System.out.println("[Error][warmupWASPC] Something went wrong when reading WASPC input stream.");
                 }
@@ -208,7 +211,10 @@ public class Worker implements Runnable{
             new Thread(() -> {
                 try {
                     BufferedReader br = new BufferedReader(new InputStreamReader(waspcProcess.getErrorStream()));
-                    while (br.readLine() != null) {}
+                    String nextLine;
+                    while ((nextLine = br.readLine()) != null) {
+                        //ConOut(true, nextLine);
+                    }
                 }catch(Exception ex){
                     System.out.println("[Error][warmupWASPC] Something went wrong when reading WASPC error stream.");
                 }
