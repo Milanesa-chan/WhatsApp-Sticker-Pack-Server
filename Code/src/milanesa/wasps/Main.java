@@ -32,7 +32,10 @@ public class Main {
         //Test connection with database
         //testDatabaseConnection();
 
-        //TODO: execute waspc one with param -stopgd
+        //Gradle Daemon is a background application that makes consecutive executions of WASPC work faster
+        //but it locks some files from being deleted. This should stop all of them so WASPS
+        //Can empty the workers directory.
+        stopGradleDaemon(WASPCPath);
 
         //Prepare directories (file_dir and workers_dir)
         setupDirectories();
