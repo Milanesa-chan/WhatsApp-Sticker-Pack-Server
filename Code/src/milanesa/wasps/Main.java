@@ -359,10 +359,9 @@ public class Main {
             if(waspcExitCode != 0){
                 System.out.println("[stopGradleDaemon] WASPC Process finished with exit code: "+waspcExitCode+". Aborting.");
                 Runtime.getRuntime().exit(waspcExitCode);
+                return 1;
             }else System.out.println("[stopGradleDaemon] Gradle Daemons stopped successfully.");
 
-            //TODO: ONLY FOR TESTING PURPOSES. DELETE THIS NEXT LINE.
-            Runtime.getRuntime().exit(-1);
             return 0;
         }catch(Exception ex){
             System.out.println("[stopGradleDaemon] An error occurred while stopping the Gradle Daemon. Aborting.");
