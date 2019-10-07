@@ -3,8 +3,10 @@ package milanesa.wasps;
 import org.apache.commons.io.FileUtils;
 import org.ini4j.*;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.net.URLDecoder;
 import java.sql.*;
 import java.util.*;
@@ -29,6 +31,11 @@ public class Main {
 
         //Test connection with database
         //testDatabaseConnection();
+
+        //Gradle Daemon is a background application that makes consecutive executions of WASPC work faster
+        //but it locks some files from being deleted. This should stop all of them so WASPS
+        //Can empty the workers directory.
+        stopGradleDaemon(WASPCPath);
 
         //Prepare directories (file_dir and workers_dir)
         setupDirectories();
@@ -309,5 +316,57 @@ public class Main {
         }
 
         return "Error";
+    }
+
+    private static int stopGradleDaemon(String WASPCPath){
+        System.out.println("[stopGradleDaemon] Stopping all Gradle Daemons to avoid file locking.");
+
+        File waspcDir = new File(WASPCPath);
+
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.directory(waspcDir);
+        processBuilder.command("java", "-jar", "WASPC.jar", "-stopgd");
+
+        try{
+            Process waspcProcess = processBuilder.start();
+
+            new Thread(() -> {
+                try {
+                    InputStreamReader isr = new InputStreamReader(waspcProcess.getInputStream());
+                    BufferedReader br = new BufferedReader(isr);
+                    String nextLine;
+                    while ((nextLine = br.readLine()) != null) {
+                        // output nextLine
+                    }
+                }catch(Exception ex){ex.printStackTrace();}
+
+            }).start();
+
+            new Thread(() -> {
+                try {
+                    InputStreamReader isr = new InputStreamReader(waspcProcess.getErrorStream());
+                    BufferedReader br = new BufferedReader(isr);
+                    String nextLine;
+                    while ((nextLine = br.readLine()) != null) {
+                        // output nextLine
+                    }
+                }catch(Exception ex){ex.printStackTrace();}
+
+            }).start();
+
+            int waspcExitCode = waspcProcess.waitFor();
+
+            if(waspcExitCode != 0){
+                System.out.println("[stopGradleDaemon] WASPC Process finished with exit code: "+waspcExitCode+". Aborting.");
+                Runtime.getRuntime().exit(waspcExitCode);
+                return 1;
+            }else System.out.println("[stopGradleDaemon] Gradle Daemons stopped successfully.");
+
+            return 0;
+        }catch(Exception ex){
+            System.out.println("[stopGradleDaemon] An error occurred while stopping the Gradle Daemon. Aborting.");
+            Runtime.getRuntime().exit(1);
+            return 1;
+        }
     }
 }
