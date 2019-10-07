@@ -25,6 +25,7 @@ The file should be set to have the next line: ```sdk.dir=``` followed by your an
 ### The Prefs.ini file
 
 This file can be found inside the **Main Dir** and is the main configuration file for WASPS. Its structure is as follows:
+
 **Note:** Paths have to be sectioned with '/' and not '\\'
 
 ```
