@@ -18,9 +18,38 @@ WASPC Requires the Android SDK to be installed in your system. This guide will n
 
 This application relies on [WASPC](https://github.com/Milanesa-chan/WhatsApp-Sticker-Pack-Creator) as the main engine for the workers. It in turn relies on Gradle, an Android build manager, to compile the final .sdk file. Gradle needs to know the location of the aforementioned Android SDK root directory. To set this up you have to go to (within the **Main Dir**): *WASPC/android* and check if there is a *local.properties* file. If there is not, create it.
 
-The file should be set to have the next line: ```sdk.dir=``` followed by your android-sdk* root directory (sectioned using '/').
+The file should be set to have the next line: ```sdk.dir=``` followed by your android-sdk* root directory's absolute path (sectioned using '/').
 
 **\***: The android-sdk root is the folder where "tools", "platforms" and "build-tools" can be found along with others.
+
+### The Prefs.ini file
+
+This file can be found inside the **Main Dir** and is the main configuration file for WASPS. Its structure is as follows:
+**Note:** Paths have to be sectioned with '/' and not '\\'
+
+```
+#Contains the paths to the other two directories we prepared
+[dir]
+
+#The files directory's absolute path
+files_dir =
+
+#The workers directory's absolute path
+workers_dir = 
+
+#Contain configuration info for the workers
+[workers]
+
+#Amount of workers to be run. Minimum of 1, Maximum of 10.
+amount = 1
+
+#Contains the database connection data
+[db]
+database = 
+table = 
+user = 
+password =
+```
 
 ### Database
 
