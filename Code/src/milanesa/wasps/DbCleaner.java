@@ -50,7 +50,15 @@ public class DbCleaner {
 
     static void deleteUUIDsFromDatabase(Connection dbCon, String[] uuidsToDelete){
         String deletionQuery = createDeletionQuery(uuidsToDelete);
-        
+        try{
+            if(dbCon != null){
+                Statement stmt = dbCon.createStatement();
+                stmt.execute(deletionQuery);
+            }
+            ConOut(false, "Successfully cleansed database.");
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     static String createDeletionQuery(String[] strings){
