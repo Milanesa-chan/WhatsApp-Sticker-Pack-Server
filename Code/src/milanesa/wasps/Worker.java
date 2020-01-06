@@ -5,6 +5,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
+import java.util.concurrent.TimeUnit;
 import java.util.prefs.Preferences;
 
 public class Worker implements Runnable{
@@ -118,7 +119,7 @@ public class Worker implements Runnable{
 
             }).start();
 
-            buildProcess.waitFor();
+            buildProcess.waitFor(10, TimeUnit.MINUTES);
 
             ConOut(false, "WASPC Process finished.");
 
