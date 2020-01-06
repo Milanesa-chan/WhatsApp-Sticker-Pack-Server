@@ -12,7 +12,13 @@ public class DbCleaner {
 
     static int deleteExpiredEntriesAndFiles(Connection dbCon, int minutesToExpire){
         String uuidDeletionList[] = getUUIDsOfExpiredEntries(dbCon, minutesToExpire);
-        
+        if(uuidDeletionList.length > 0){
+            ConOut(false, "Found "+uuidDeletionList.length+" entries to clean. Processing...");
+
+        }else {
+            ConOut(false, "No expired entries found. Database clean.");
+            return 0;
+        }
     }
 
     static String[] getUUIDsOfExpiredEntries(Connection dbCon, int minutesToExpire){
@@ -40,6 +46,24 @@ public class DbCleaner {
         ConOut(false, "Expiration Date and Time: "+dateFormat.format(maximumExpirationDateTime));
 
         return dateFormat.format(maximumExpirationDateTime);
+    }
+
+    static void deleteUUIDsFromDatabase(Connection dbCon, String[] uuidsToDelete){
+        String deletionQuery = createDeletionQuery(uuidsToDelete);
+        
+    }
+
+    static String createDeletionQuery(String[] strings){
+        String query = "DELETE * FROM entries WHERE UID IN (";
+
+        for(String uid : strings){
+            query = query.concat("'"+uid+"',");
+        }
+
+        query = query.substring(0, query.length() - 1);
+        query = query.concat(");");
+
+        return query;
     }
 
     static void ConOut(boolean isError, String message){
