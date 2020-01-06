@@ -12,16 +12,20 @@ public class DbCleaner {
 
     static int deleteExpiredEntriesAndFiles(Connection dbCon, int minutesToExpire){
         String uuidDeletionList[] = getUUIDsOfExpiredEntries(dbCon, minutesToExpire);
+        
     }
 
     static String[] getUUIDsOfExpiredEntries(Connection dbCon, int minutesToExpire){
         String maxExpirationDateTime = maxExpirationDateTimeString(minutesToExpire);
+        ResultSet resultSet = null;
 
         try{
             if(dbCon != null) {
                 Statement stmt = dbCon.createStatement();
                 String query = "SELECT * FROM entries WHERE (creation_date < '"+maxExpirationDateTime+"' OR status = 'failed'";
-            }
+                resultSet = stmt.executeQuery(query);
+                return (String[]) resultSet.getArray("UID").getArray();
+            }else return null;
         }catch(Exception ex){
             ex.printStackTrace();
             return null;
