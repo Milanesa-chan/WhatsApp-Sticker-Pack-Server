@@ -1,7 +1,9 @@
 package milanesa.wasps;
 
+import org.apache.commons.io.FileUtils;
 import sun.java2d.pipe.SpanShapeRenderer;
 
+import java.io.File;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -14,14 +16,16 @@ public class DbCleaner {
         String uuidDeletionList[] = getUUIDsOfExpiredEntries(dbCon, minutesToExpire);
         if(uuidDeletionList.length > 0){
             ConOut(false, "Found "+uuidDeletionList.length+" entries to clean. Processing...");
-
+            deleteUUIDsFromDatabase(dbCon, uuidDeletionList);
+            String filesDirPath = Main.appPrefs.node("dir").get("files_dir", null);
+            deleteFilesOfUUIDs(uuidDeletionList, filesDirPath);
         }else {
             ConOut(false, "No expired entries found. Database clean.");
             return 0;
         }
     }
 
-    static void deleteUUIDsFromDatabase(Connection dbCon, String[] uuidsToDelete){
+    private static void deleteUUIDsFromDatabase(Connection dbCon, String[] uuidsToDelete){
         String deletionQuery = createDeletionQuery(uuidsToDelete);
         try{
             if(dbCon != null){
@@ -34,11 +38,29 @@ public class DbCleaner {
         }
     }
 
-    static void deleteFilesOfUUIDs(String[] uuids){
+    private static void deleteFilesOfUUIDs(String[] uuids, String filesDirPath){
+        File filesDir = new File(filesDirPath);
 
+        if(!filesDir.exists() || !filesDir.isDirectory()){
+            ConOut(true, "Failed to access files directory. Skipping deletion.");
+        }else{
+            File dirToDelete = null;
+            for(String uid : uuids){
+                dirToDelete = new File(filesDirPath);
+
+                try {
+                    if (dirToDelete.exists() && dirToDelete.isDirectory()){
+                        FileUtils.deleteDirectory(dirToDelete);
+                        ConOut(false, "Deleted directory: "+uid);
+                    }
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        }
     }
 
-    static String[] getUUIDsOfExpiredEntries(Connection dbCon, int minutesToExpire){
+    private static String[] getUUIDsOfExpiredEntries(Connection dbCon, int minutesToExpire){
         String maxExpirationDateTime = maxExpirationDateTimeString(minutesToExpire);
         ResultSet resultSet = null;
 
@@ -55,7 +77,7 @@ public class DbCleaner {
         }
     }
 
-    static String maxExpirationDateTimeString(int minutesToExpire){
+    private static String maxExpirationDateTimeString(int minutesToExpire){
         LocalDateTime maximumExpirationDateTime = LocalDateTime.now().minusMinutes(minutesToExpire);
         String dateTimePattern = "yyyy-MM-dd HH:mm:ss";
         SimpleDateFormat dateFormat = new SimpleDateFormat(dateTimePattern);
@@ -65,7 +87,7 @@ public class DbCleaner {
         return dateFormat.format(maximumExpirationDateTime);
     }
 
-    static String createDeletionQuery(String[] strings){
+    private static String createDeletionQuery(String[] strings){
         String query = "DELETE * FROM entries WHERE UID IN (";
 
         for(String uid : strings){
@@ -78,7 +100,7 @@ public class DbCleaner {
         return query;
     }
 
-    static void ConOut(boolean isError, String message){
+    private static void ConOut(boolean isError, String message){
         String finalOutput = "";
         if(isError) finalOutput = finalOutput.concat("[Error]");
         String className = Thread.currentThread().getStackTrace()[1].getClassName();
