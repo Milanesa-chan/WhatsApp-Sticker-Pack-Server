@@ -69,7 +69,22 @@ public class DbCleaner {
                 Statement stmt = dbCon.createStatement();
                 String query = "SELECT * FROM entries WHERE creation_date < '"+maxExpirationDateTime+"' OR status = 'failed'";
                 resultSet = stmt.executeQuery(query);
-                return (String[]) resultSet.getArray("UID").getArray();
+
+                int resultSetSize = 0;
+                if(resultSet.last()){
+                    resultSetSize = resultSet.getRow();
+                    resultSet.beforeFirst();
+                }
+
+                String[] uuidsArray = new String[resultSetSize];
+
+                int index = 0;
+                while(resultSet.next()){
+                    uuidsArray[index] = resultSet.getString("UID");
+                    index++;
+                }
+
+                return uuidsArray;
             }else return null;
         }catch(Exception ex){
             ex.printStackTrace();
