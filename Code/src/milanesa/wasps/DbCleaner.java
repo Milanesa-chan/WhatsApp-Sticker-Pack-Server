@@ -6,6 +6,7 @@ import java.io.File;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class DbCleaner {
 
@@ -79,11 +80,11 @@ public class DbCleaner {
     private static String maxExpirationDateTimeString(int minutesToExpire){
         LocalDateTime maximumExpirationDateTime = LocalDateTime.now().minusMinutes(minutesToExpire);
         String dateTimePattern = "yyyy-MM-dd HH:mm:ss";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(dateTimePattern);
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(dateTimePattern);
 
-        ConOut(false, "Expiration Date and Time: "+dateFormat.format(maximumExpirationDateTime));
+        ConOut(false, "Expiration Date and Time: "+dateFormatter.format(maximumExpirationDateTime));
 
-        return dateFormat.format(maximumExpirationDateTime);
+        return dateFormatter.format(maximumExpirationDateTime);
     }
 
     private static String createDeletionQuery(String[] strings){

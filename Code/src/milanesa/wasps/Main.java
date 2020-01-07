@@ -117,7 +117,7 @@ public class Main {
                     sleepingTime = 10000;
                 }
             }
-        }catch(Exception ex){}
+        }catch(Exception ex){ex.printStackTrace();}
     }
 
     private static void reportFailedTasks(Connection dbCon){
