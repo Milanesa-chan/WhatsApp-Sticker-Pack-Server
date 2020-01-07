@@ -109,6 +109,7 @@ public class Main {
                     sleepingTime = 5000;
 
                     reportFailedTasks(dbCon);
+                    DbCleaner.deleteExpiredEntriesAndFiles(dbCon);
 
                     dbCon.close();
                 }else{
