@@ -96,8 +96,6 @@ public class DbCleaner {
         String dateTimePattern = "yyyy-MM-dd HH:mm:ss";
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(dateTimePattern);
 
-        ConOut(false, "Expiration Date and Time: "+dateFormatter.format(maximumExpirationDateTime));
-
         return dateFormatter.format(maximumExpirationDateTime);
     }
 
@@ -117,9 +115,9 @@ public class DbCleaner {
     private static void ConOut(boolean isError, String message){
         String finalOutput = "";
         if(isError) finalOutput = finalOutput.concat("[Error]");
-        String className = Thread.currentThread().getStackTrace()[1].getClassName();
+        String className = Thread.currentThread().getStackTrace()[2].getClassName();
         finalOutput = finalOutput.concat("["+className+"]");
-        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
         finalOutput = finalOutput.concat("["+methodName+"] ");
         finalOutput = finalOutput.concat(message);
         System.out.println(finalOutput);
