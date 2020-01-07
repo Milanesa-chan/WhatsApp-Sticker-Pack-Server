@@ -105,7 +105,7 @@ public class DbCleaner {
     }
 
     private static String createDeletionQuery(String[] strings){
-        String query = "DELETE * FROM entries WHERE UID IN (";
+        String query = "DELETE FROM entries WHERE UID IN (";
 
         for(String uid : strings){
             query = query.concat("'"+uid+"',");
