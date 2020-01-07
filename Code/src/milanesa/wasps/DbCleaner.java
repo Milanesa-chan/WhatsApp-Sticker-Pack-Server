@@ -46,15 +46,17 @@ public class DbCleaner {
         }else{
             File dirToDelete;
             for(String uid : uuids){
-                dirToDelete = new File(filesDirPath);
+                if(uid != null) {
+                    dirToDelete = new File(filesDirPath.concat(uid));
 
-                try {
-                    if (dirToDelete.exists() && dirToDelete.isDirectory()){
-                        FileUtils.deleteDirectory(dirToDelete);
-                        ConOut(false, "Deleted directory: "+uid);
+                    try {
+                        if (dirToDelete.exists() && dirToDelete.isDirectory()) {
+                            FileUtils.deleteDirectory(dirToDelete);
+                            ConOut(false, "Deleted directory: " + uid);
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
                     }
-                }catch(Exception ex){
-                    ex.printStackTrace();
                 }
             }
         }
