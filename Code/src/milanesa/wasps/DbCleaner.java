@@ -21,6 +21,23 @@ public class DbCleaner {
         }
     }
 
+    static void deleteUUIDsFromDatabase(Connection dbCon, String[] uuidsToDelete){
+        String deletionQuery = createDeletionQuery(uuidsToDelete);
+        try{
+            if(dbCon != null){
+                Statement stmt = dbCon.createStatement();
+                stmt.execute(deletionQuery);
+                ConOut(false, "Successfully cleansed database.");
+            }else ConOut(false, "Failed to clean database. Connection null.");
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    static void deleteFilesOfUUIDs(String[] uuids){
+
+    }
+
     static String[] getUUIDsOfExpiredEntries(Connection dbCon, int minutesToExpire){
         String maxExpirationDateTime = maxExpirationDateTimeString(minutesToExpire);
         ResultSet resultSet = null;
@@ -46,19 +63,6 @@ public class DbCleaner {
         ConOut(false, "Expiration Date and Time: "+dateFormat.format(maximumExpirationDateTime));
 
         return dateFormat.format(maximumExpirationDateTime);
-    }
-
-    static void deleteUUIDsFromDatabase(Connection dbCon, String[] uuidsToDelete){
-        String deletionQuery = createDeletionQuery(uuidsToDelete);
-        try{
-            if(dbCon != null){
-                Statement stmt = dbCon.createStatement();
-                stmt.execute(deletionQuery);
-            }
-            ConOut(false, "Successfully cleansed database.");
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
     }
 
     static String createDeletionQuery(String[] strings){
