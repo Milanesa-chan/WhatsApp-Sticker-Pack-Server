@@ -1,25 +1,23 @@
 package milanesa.wasps;
 
 import org.apache.commons.io.FileUtils;
-import sun.java2d.pipe.SpanShapeRenderer;
 
 import java.io.File;
 import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.temporal.TemporalUnit;
 
 public class DbCleaner {
 
     static int deleteExpiredEntriesAndFiles(Connection dbCon){
         int minutesToExpire = Main.appPrefs.node("cleanup").getInt("minutes_to_expire", 30);
-        String uuidDeletionList[] = getUUIDsOfExpiredEntries(dbCon, minutesToExpire);
-        if(uuidDeletionList.length > 0){
+        String[] uuidDeletionList = getUUIDsOfExpiredEntries(dbCon, minutesToExpire);
+        if(uuidDeletionList != null && uuidDeletionList.length > 0){
             ConOut(false, "Found "+uuidDeletionList.length+" entries to clean. Processing...");
             deleteUUIDsFromDatabase(dbCon, uuidDeletionList);
             String filesDirPath = Main.appPrefs.node("dir").get("files_dir", null);
             deleteFilesOfUUIDs(uuidDeletionList, filesDirPath);
+            return uuidDeletionList.length;
         }else {
             ConOut(false, "No expired entries found. Database clean.");
             return 0;
@@ -45,7 +43,7 @@ public class DbCleaner {
         if(!filesDir.exists() || !filesDir.isDirectory()){
             ConOut(true, "Failed to access files directory. Skipping deletion.");
         }else{
-            File dirToDelete = null;
+            File dirToDelete;
             for(String uid : uuids){
                 dirToDelete = new File(filesDirPath);
 
@@ -63,7 +61,7 @@ public class DbCleaner {
 
     private static String[] getUUIDsOfExpiredEntries(Connection dbCon, int minutesToExpire){
         String maxExpirationDateTime = maxExpirationDateTimeString(minutesToExpire);
-        ResultSet resultSet = null;
+        ResultSet resultSet;
 
         try{
             if(dbCon != null) {
