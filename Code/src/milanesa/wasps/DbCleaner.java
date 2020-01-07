@@ -12,7 +12,8 @@ import java.time.temporal.TemporalUnit;
 
 public class DbCleaner {
 
-    static int deleteExpiredEntriesAndFiles(Connection dbCon, int minutesToExpire){
+    static int deleteExpiredEntriesAndFiles(Connection dbCon){
+        int minutesToExpire = Main.appPrefs.node("cleanup").getInt("minutes_to_expire", 30);
         String uuidDeletionList[] = getUUIDsOfExpiredEntries(dbCon, minutesToExpire);
         if(uuidDeletionList.length > 0){
             ConOut(false, "Found "+uuidDeletionList.length+" entries to clean. Processing...");
