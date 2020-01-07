@@ -19,10 +19,7 @@ public class DbCleaner {
             String filesDirPath = Main.appPrefs.node("dir").get("files_dir", null);
             deleteFilesOfUUIDs(uuidDeletionList, filesDirPath);
             return uuidDeletionList.length;
-        }else {
-            ConOut(false, "No expired entries found. Database clean.");
-            return 0;
-        }
+        }else return 0;
     }
 
     private static void deleteUUIDsFromDatabase(Connection dbCon, String[] uuidsToDelete){
@@ -47,17 +44,17 @@ public class DbCleaner {
             File dirToDelete;
             for(String uid : uuids){
                 if(uid != null) {
-                    dirToDelete = new File(filesDirPath.concat(uid));
+                    dirToDelete = new File(filesDirPath.concat("/"+uid));
 
                     try {
                         if (dirToDelete.exists() && dirToDelete.isDirectory()) {
                             FileUtils.deleteDirectory(dirToDelete);
                             ConOut(false, "Deleted directory: " + uid);
-                        }
+                        }else ConOut(true, "Couldn't find directory: "+uid);
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
-                }
+                }else ConOut(true, "String in array is null.");
             }
         }
     }
