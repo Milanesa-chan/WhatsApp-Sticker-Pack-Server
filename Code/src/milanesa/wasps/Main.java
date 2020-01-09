@@ -12,6 +12,7 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.FileHandler;
+import java.util.logging.LogManager;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 import java.util.prefs.Preferences;
@@ -66,6 +67,8 @@ public class Main {
     static void setupLogger(String jarPath){
         File logsDir = new File(jarPath.concat("/logs"));
         if(!logsDir.exists()) logsDir.mkdirs();
+
+        LogManager.getLogManager().reset();
 
         FileHandler fileHandler = null;
         SimpleDateFormat format = new SimpleDateFormat("M-d_HHmmss");
