@@ -10,9 +10,12 @@ import java.io.InputStreamReader;
 import java.net.URLDecoder;
 import java.sql.*;
 import java.util.*;
+import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 
 public class Main {
+    Logger logger = Logger.getLogger("MainLog");
+
     static Preferences appPrefs;
     static String WASPCPath;
     //WASPC = WhatsApp Sticker Pack Creator (The app that creates
