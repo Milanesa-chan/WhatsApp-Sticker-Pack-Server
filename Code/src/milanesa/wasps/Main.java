@@ -33,7 +33,7 @@ public class Main {
         //Obtain ini file and params
         String jarPath = getJarPath();
         setupLogger(jarPath);
-        
+
         appPrefs = loadPreferencesFromIni(jarPath+"/prefs.ini");
         WASPCPath = jarPath+"/WASPC";
 
@@ -72,6 +72,7 @@ public class Main {
             fileHandler = new FileHandler(logPath);
         }catch(Exception ex){
             ex.printStackTrace();
+            Runtime.getRuntime().exit(1);
         }
 
         fileHandler.setFormatter(new SimpleFormatter());
