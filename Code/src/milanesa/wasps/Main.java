@@ -33,7 +33,7 @@ public class Main {
         //Obtain ini file and params
         String jarPath = getJarPath();
         setupLogger(jarPath);
-
+        
         appPrefs = loadPreferencesFromIni(jarPath+"/prefs.ini");
         WASPCPath = jarPath+"/WASPC";
 
@@ -64,6 +64,9 @@ public class Main {
     }
 
     static void setupLogger(String jarPath){
+        File logsDir = new File(jarPath.concat("/logs"));
+        if(!logsDir.exists()) logsDir.mkdirs();
+
         FileHandler fileHandler = null;
         SimpleDateFormat format = new SimpleDateFormat("M-d_HHmmss");
         String logPath = jarPath.concat("/logs/MainLog_" + format.format(Calendar.getInstance().getTime()) + ".log");
