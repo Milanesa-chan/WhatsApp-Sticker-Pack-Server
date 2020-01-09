@@ -9,8 +9,11 @@ import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.net.URLDecoder;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.logging.FileHandler;
 import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 import java.util.prefs.Preferences;
 
 public class Main {
@@ -56,6 +59,21 @@ public class Main {
 
         Thread dbCleanupThread = new Thread(Main::dbCleanupLoop);
         dbCleanupThread.start();
+    }
+
+    private void setupLogger(String jarPath){
+        FileHandler fileHandler = null;
+        SimpleDateFormat format = new SimpleDateFormat("M-d_HHmmss");
+        String logPath = jarPath.concat("/logs/MainLog_" + format.format(Calendar.getInstance().getTime()) + ".log");
+
+        try {
+            fileHandler = new FileHandler(logPath);
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+
+        fileHandler.setFormatter(new SimpleFormatter());
+        logger.addHandler(fileHandler);
     }
 
     private static void workManagerLoop(){
