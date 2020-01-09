@@ -30,9 +30,10 @@ public class Main {
     private static Queue<String> failQueue;
 
     public static void main(String[] args){
-
         //Obtain ini file and params
         String jarPath = getJarPath();
+        setupLogger(jarPath);
+        
         appPrefs = loadPreferencesFromIni(jarPath+"/prefs.ini");
         WASPCPath = jarPath+"/WASPC";
 
