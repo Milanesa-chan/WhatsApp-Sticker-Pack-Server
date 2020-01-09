@@ -11,10 +11,7 @@ import java.net.URLDecoder;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.logging.FileHandler;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
+import java.util.logging.*;
 import java.util.prefs.Preferences;
 
 public class Main {
@@ -264,6 +261,7 @@ public class Main {
                         System.out.println("[setupDirectories] Workers directory has files in it. Emptying it...");
                         FileUtils.cleanDirectory(workersDir);
                     } catch (Exception ex) {
+                        logger.log(Level.SEVERE, "Failed to empty workers directory", ex);
                         System.out.println("[Error][setupDirectories] Couldn't empty workers directory. Aborting.");
                         Runtime.getRuntime().exit(1);
                     }
