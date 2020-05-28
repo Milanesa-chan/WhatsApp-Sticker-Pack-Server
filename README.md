@@ -1,8 +1,10 @@
 # WhatsApp Sticker Pack Server (WASPS)
 
+## This project is archived and the developer will not continue developing it. Feel free to fork it and do whatever you want under the licences of it and its dependencies.
+
 [Installation](https://github.com/Milanesa-chan/WhatsApp-Sticker-Pack-Server/blob/master/INSTALLATION.md)
 
-Backend for the [WASPC](https://github.com/Milanesa-chan/WhatsApp-Sticker-Pack-Creator "WASPC Repository") Web application. The project is advancing very slowly as it is not a priority for the developer right now. Feel free to fork it and do what you want with this.
+Backend for the [WASPC](https://github.com/Milanesa-chan/WhatsApp-Sticker-Pack-Creator "WASPC Repository") Web application.
 
 # How it Works
 
